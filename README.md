@@ -26,6 +26,6 @@ __Note__: each mapping between a peptide sequence and the correspondent protein 
 
 ## The script `map_semi_tryptic_peptides_to_proteins_in_fasta.R`  
 
-This script contains an example usage of the `annotate_peptides` using a DIA-NN peptide tabular output as an input.
+This script contains an example usage of the `annotate_peptides` function using a DIA-NN peptide tabular file as an input.
 
 
