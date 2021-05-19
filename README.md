@@ -1,8 +1,8 @@
 # Annotate peptides from proteins sequences in fasta file  
 
-## The function `annotate_peptides.R`  
+## The function `annotate_peptides`  
 
-The script `annotate_peptides` contains the function `annotate_peptides` that takes two argumens:
+The script `annotate_peptides.R` contains the function `annotate_peptides` that takes two argumens:
 
 - `peptide_sequence`: character vector containing peptide sequences.
 - `fasta`: list containing the fasta file that was used by the search engine to identify the peptides in `peptide_sequence`. The list of fasta sequences should be loaded into R with the `read.fasta` function from the `seqinr` package.  
