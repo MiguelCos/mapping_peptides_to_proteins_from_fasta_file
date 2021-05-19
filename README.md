@@ -7,7 +7,7 @@ The script `annotate_peptides` contains the function `annotate_peptides` that ta
 - `peptide_sequence`: character vector containing peptide sequences.
 - `fasta`: list containing the fasta file that was used by the search engine to identify the peptides in `peptide_sequence`. The list of fasta sequences should be loaded into R with the `read.fasta` function from the `seqinr` package.  
 
-The output would be a data.frame containing the columns:
+The output would be a `data.frame` containing the columns:
 
 - protein_id
 - protein_description
