@@ -30,3 +30,7 @@ This script contains an example usage of the `annotate_peptides` using a DIA-NN 
 
 
 
+=======
+# Mapping peptides to proteins in fasta file
+This repo contains a script for mapping peptide sequences arousing from database search algorithms to their corresponding proteins in a fasta file 
+>>>>>>> 48a58f13ac783700a374d6f2be54cf36d239eef3
