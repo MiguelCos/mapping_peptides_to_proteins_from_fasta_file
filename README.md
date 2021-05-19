@@ -1,4 +1,4 @@
-# mapping_peptides_to_proteins_from_fasta_file
+# Annotate peptides from proteins sequences in fasta file  
 
 ## The function `annotate_peptides.R`  
 
@@ -29,8 +29,3 @@ __Note__: each mapping between a peptide sequence and the correspondent protein 
 This script contains an example usage of the `annotate_peptides` using a DIA-NN peptide tabular output as an input.
 
 
-
-=======
-# Mapping peptides to proteins in fasta file
-This repo contains a script for mapping peptide sequences arousing from database search algorithms to their corresponding proteins in a fasta file 
->>>>>>> 48a58f13ac783700a374d6f2be54cf36d239eef3
