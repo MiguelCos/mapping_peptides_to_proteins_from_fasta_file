@@ -9,16 +9,16 @@ The script `annotate_peptides` contains the function `annotate_peptides` that ta
 
 The output would be a `data.frame` containing the columns:
 
-- protein_id
-- protein_description
-- peptide_seq: sequence of the input peptide.
-- start_position: numeric start position of the peptide in the protein sequence.
-- stop_position: numeric stop position of the peptide in the protein sequence.
-- last_aa: last amino acid.
-- aa_after: amino acid after input peptide
-- aa_before: amino acid before input peptide
-- following_10_resid: following 10 amino acids after input peptide
-- previous_10_resid: previous 10 amino acids after input peptide
+- `protein_id`
+- `protein_description`
+- `peptide_seq`: sequence of the input peptide.
+- `start_position`: numeric start position of the peptide in the protein sequence.
+- `stop_position`: numeric stop position of the peptide in the protein sequence.
+- `last_aa`: last amino acid.
+- `aa_after`: amino acid after input peptide
+- `aa_before`: amino acid before input peptide
+- `following_10_resid`: following 10 amino acids after input peptide
+- `previous_10_resid`: previous 10 amino acids after input peptide
 
 This can be used to join with your tabular data containing quantitative information.
 
