@@ -1,5 +1,5 @@
 # Annotate peptides function ----
-# Miguel Cosenza v 1.0 
+# Miguel Cosenza v 1.0.1 
 
 annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev"){ # input should be a vector of peptide sequences and the fasta file
