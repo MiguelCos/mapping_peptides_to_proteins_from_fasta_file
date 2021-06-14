@@ -54,8 +54,8 @@ annotated_peptides <- annotate_peptides(expr_mat = expr_tab,
                                         decoy_tag = "^rev_")
 
 # Join the original data table with the newly generated data table including the peptide annotation
-peptides_w_annotation <- left_join(peptides,
-  annotated_peptides, by = "peptide_seq")
+peptides_w_annotation <- left_join(expr_tab,
+  annotated_peptides, by = "Peptide")
 
 write_delim(x = peptides_w_annotation,
             file = "output/sample/tabular_file_w_peptide_annotation.tsv",
