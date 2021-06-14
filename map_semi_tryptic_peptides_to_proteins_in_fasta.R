@@ -38,8 +38,6 @@ colnames(expr_tab) <- head_names
 
 ## Define variales that will go into the function  
 
-peptide_sequence <- expr_tab$Peptide
-
 fasta <- fasta
 
 ## Load the annotate_peptides functions into the R environment ----
