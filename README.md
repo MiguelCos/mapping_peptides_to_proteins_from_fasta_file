@@ -35,7 +35,7 @@ Our test with the new version show that it takes ~10 minutes of execution to ann
 
 This script contains an example usage of the `annotate_peptides` function using a DIA-NN peptide tabular file as an input.
 
-Small sample files, both for the quantitative matrix and the fasta file are provided in the samples folder to test the usage of this function and script.
+Small sample files, both for the quantitative matrix and the fasta file are provided in the `data/sample` folder to test the usage of this function and script.
 
 The input file is an quantitative matrix of peptides in which the first two columns correspond to peptide sequence and protein ID.
 
