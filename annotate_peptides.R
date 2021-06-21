@@ -6,7 +6,8 @@ annotate_peptides <- function(expr_mat, fasta,
    
    pept2prot <- expr_mat %>% 
       select(Peptide, Genes) %>% 
-      mutate(across(.cols = everything, .fns = as.character))
+      mutate(Peptide = as.character(Peptide),
+             Genes = as.character(Genes))
    
    peptide_sequence <- pept2prot$Peptide
    
