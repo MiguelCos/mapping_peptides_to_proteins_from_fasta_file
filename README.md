@@ -8,7 +8,7 @@ The function `annotate_peptides` now requires a data frame that contain the mapp
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:
 
-- `expr_mat`: a data frame containing __at least__ two columns with the next _exact_ names: `Peptide` (containing the peptide sequence that you want to annotatate) `Genes` (containing the Uniprot ID that can be used to look for the interesting protein sequence in the database).
+- `expr_mat`: a data frame containing __at least__ two columns with the next _exact_ names: `Peptide` (containing the peptide sequence that you want to annotatate) `Genes` (containing the Uniprot ID that can be used to look for the interesting protein sequence in the fasta file).
 - `fasta`: list containing the fasta file that was used by the search engine to identify the peptides in `peptide_sequence`. The list of fasta sequences should be loaded into R with the `read.fasta` function from the `seqinr` package.  
 - `decoy_tag`: a string defining how to differentiate the decoy sequences in the fasta sequences file for their exclusion. 
 
@@ -34,6 +34,8 @@ Our test with the new version show that it takes ~10 minutes of execution to ann
 ## The script `map_semi_tryptic_peptides_to_proteins_in_fasta.R`  
 
 This script contains an example usage of the `annotate_peptides` function using a DIA-NN peptide tabular file as an input.
+
+Small sample files, both for the quantitative matrix and the fasta file are provided in the `data/sample` folder to test the usage of this function and script.
 
 The input file is an quantitative matrix of peptides in which the first two columns correspond to peptide sequence and protein ID.
 
