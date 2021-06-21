@@ -18,7 +18,7 @@ library(seqinr)
 
 # Load data ----
 
-expr_tab <- read.delim("data/sample/sample_tabular.tsv")
+expr_tab <- read.delim("data/sample/sample_tabular.tsv", stringsAsFactors = FALSE)
 
 fasta <- read.fasta("data/sample/sample_sequences.fasta",
   seqtype = "AA", as.string = TRUE)
