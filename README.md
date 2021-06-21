@@ -4,6 +4,10 @@
 
 The function `annotate_peptides` now requires a data frame that contain the mapping between peptide sequences to their corresponding Uniprot protein ID. This was necessary because searching the fasta file by matching the peptide sequence of interest against all the protein sequences in the fasta file was too time intensive. An older version of this `annotate_peptides` function allows to match the peptide sequence against all protein sequences in the fasta file. 
 
+## Updates on version 1.1:
+
+The `annotate_peptides` function now forces the input columns for the annotation be characters. In older versions of R, `read.delim` loads strings as factors, making this input uncompatible withe `str_*` functions within `annotate_peptides`.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:
