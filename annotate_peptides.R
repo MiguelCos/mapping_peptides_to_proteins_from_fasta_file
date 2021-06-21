@@ -5,7 +5,8 @@ annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev"){ # input should be a vector of peptide sequences and the fasta file
    
    pept2prot <- expr_mat %>% 
-      select(Peptide, Genes)
+      select(Peptide, Genes) %>% 
+      mutate(across(.cols = everything, .fns = as.character))
    
    peptide_sequence <- pept2prot$Peptide
    
