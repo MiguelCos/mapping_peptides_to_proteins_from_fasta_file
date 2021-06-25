@@ -135,5 +135,14 @@ annotate_peptides <- function(expr_mat, fasta,
       }
    }
    
+   annotation <-  annotation %>%
+      mutate(semi_type = case_when(str_detect(last_aa, "R|K") & str_detect(aa_before, "R|K", negate = TRUE) ~ "semi_Nterm",
+                                   str_detect(last_aa, "R|K", negate = TRUE) & str_detect(aa_before, "R|K") ~ "semi_Cterm",
+                                   str_detect(last_aa, "R|K", negate = TRUE) & str_detect(aa_before, "R|K", negate = TRUE) ~ "unspecific",
+                                   TRUE ~ "tryptic")) %>%
+      mutate(specificity = ifelse(semi_type == "tryptic",
+                                  yes = "tryptic",
+                                  no = "semi_tryptic"))
+   
    return(annotation)
 }
