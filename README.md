@@ -32,7 +32,7 @@ The output would be a `data.frame` containing the columns:
 - `aa_before`: amino acid before input peptide
 - `following_10_resid`: following 10 amino acids after input peptide
 - `previous_10_resid`: previous 10 amino acids after input peptide
-- `specificity`: tryptip or semi-tryptic peptide.
+- `specificity`: tryptic or semi-tryptic peptide.
 - `semi_type`: if semi-tryptic; C-term or N-term semi-tryptic.
 
 This can be used to join with your tabular data containing quantitative information.
