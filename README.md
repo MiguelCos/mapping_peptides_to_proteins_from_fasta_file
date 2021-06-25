@@ -6,7 +6,11 @@ The function `annotate_peptides` now requires a data frame that contain the mapp
 
 ## Updates on version 1.1:
 
-The `annotate_peptides` function now forces the input columns for the annotation be characters. In older versions of R, `read.delim` loads strings as factors, making this input uncompatible withe `str_*` functions within `annotate_peptides`.
+The `annotate_peptides` function now forces the input columns for the annotation be characters. In older versions of R, `read.delim` loads strings as factors, making this input incompatible with `str_*` functions within `annotate_peptides`.
+
+## Updates on version 1.2:
+
+The `annotate_peptides` function now creates two additional columns: `semi_type` and `specificity`. Look function description for details.
 
 ## The function `annotate_peptides`  
 
@@ -28,6 +32,8 @@ The output would be a `data.frame` containing the columns:
 - `aa_before`: amino acid before input peptide
 - `following_10_resid`: following 10 amino acids after input peptide
 - `previous_10_resid`: previous 10 amino acids after input peptide
+- `specificity`: tryptip or semi-tryptic peptide.
+- `semi_type`: if semi-tryptic; C-term or N-term semi-tryptic.
 
 This can be used to join with your tabular data containing quantitative information.
 
