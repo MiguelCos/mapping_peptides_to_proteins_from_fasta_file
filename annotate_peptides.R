@@ -24,7 +24,7 @@ annotate_peptides <- function(expr_mat, fasta,
       
       # extract the list element that matches the peptide sequence
       list_elem <- fasta %>%
-         purrr::keep(str_detect(names(.), pept2prot$Genes[i]))
+         purrr::keep(str_detect(names(.), fixed(pept2prot$Genes[i])))
       
       
       if(is_empty(list_elem)){
