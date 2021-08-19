@@ -1,5 +1,5 @@
 # Annotate peptides function ----
-# Miguel Cosenza v 1.0.1 
+# Miguel Cosenza v 1.3 
 
 annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev"){ # input should be a vector of peptide sequences and the fasta file
@@ -103,6 +103,10 @@ annotate_peptides <- function(expr_mat, fasta,
                                       start = peptide_position[,1]-10, 
                                       end = peptide_position[,1]-1) # 10 residues before the start of the peptide sequence
          
+         previous_all_resid <- str_sub(protein_seq, 
+                                       start = 2, 
+                                       end = peptide_position[,1]-1) # all residues before up to annotated protein start
+         
          aa_after <- str_sub(protein_seq, 
                              start = peptide_position[,2]+1, 
                              end = peptide_position[,2]+1) # amino acid after
@@ -124,7 +128,8 @@ annotate_peptides <- function(expr_mat, fasta,
                           aa_after,
                           aa_before, 
                           following_10_resid, 
-                          previous_10_resid)
+                          previous_10_resid,
+                          previous_all_resid)
          
          annotation <- rbind(annotation,
                              temprow)

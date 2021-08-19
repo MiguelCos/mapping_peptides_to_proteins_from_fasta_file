@@ -12,6 +12,10 @@ The `annotate_peptides` function now forces the input columns for the annotation
 
 The `annotate_peptides` function now creates two additional columns: `semi_type` and `specificity`. Look function description for details.
 
+## Update on version 1.3:
+
+The `annotate_peptides` function now creates an additional column: `previous_all_resid`.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:
@@ -32,6 +36,7 @@ The output would be a `data.frame` containing the columns:
 - `aa_before`: amino acid before input peptide
 - `following_10_resid`: following 10 amino acids after input peptide
 - `previous_10_resid`: previous 10 amino acids after input peptide
+- `previous_all_resid`: all the previous residues up to the protein N-termini as annotated in the fasta file. This can be regarded as an 'artificial N-termini'. When the non-tryptic cleavage of the peptide is at the C-termini, this artificial one can be used as a proxy to get potential N-terminal peptides arousing from protease activity. 
 - `specificity`: tryptic or semi-tryptic peptide.
 - `semi_type`: if semi-tryptic; C-term or N-term semi-tryptic.
 
