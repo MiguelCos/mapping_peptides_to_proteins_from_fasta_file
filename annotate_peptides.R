@@ -48,7 +48,8 @@ annotate_peptides <- function(expr_mat, fasta,
                           last_aa, aa_after,
                           aa_before, 
                           following_10_resid, 
-                          previous_10_resid)
+                          previous_10_resid,
+                          previous_all_resid)
          
          annotation <- rbind(annotation,
                              temprow)
