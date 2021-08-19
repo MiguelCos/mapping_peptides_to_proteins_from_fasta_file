@@ -36,6 +36,7 @@ annotate_peptides <- function(expr_mat, fasta,
          end_position <- NA
          following_10_resid <- NA
          previous_10_resid <- NA
+         previous_all_resid <- NA
          aa_after <- NA
          aa_before <- NA
          last_aa <- NA
