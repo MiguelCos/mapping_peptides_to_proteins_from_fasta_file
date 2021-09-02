@@ -14,7 +14,11 @@ The `annotate_peptides` function now creates two additional columns: `semi_type`
 
 ## Update on version 1.3:
 
-The `annotate_peptides` function now creates an additional column: `previous_all_resid`.
+The `annotate_peptides` function now creates an additional column: `previous_all_resid`.  
+
+## Update on version 1.4: 
+
+The `annotate_peptides` function now creates an additional column: `protein_length`.  
 
 ## The function `annotate_peptides`  
 
@@ -28,6 +32,7 @@ The output would be a `data.frame` containing the columns:
 
 - `protein_id`
 - `protein_description`
+- `protein_length`
 - `peptide_seq`: sequence of the input peptide.
 - `start_position`: numeric start position of the peptide in the protein sequence.
 - `stop_position`: numeric stop position of the peptide in the protein sequence.
