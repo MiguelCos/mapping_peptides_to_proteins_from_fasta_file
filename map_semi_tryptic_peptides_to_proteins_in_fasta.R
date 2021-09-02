@@ -1,26 +1,17 @@
-#set working directory to current folder of R script
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
-#### Preceding and following residues extraction from fasta file ----
-## Miguel Cosenza v0.3
-
-## This script would: ----
-
-# Add columns to the input tabular file from DIA-NN containing the following infos:
-# (similar to MQ peptides.txt) to be extracted from a fasta file
-# - following 10 residues
-# - preceding 10 residues
-# - protein name; uniprot ID
+## Test script for the usability of the annotate_peptides function 
+## Miguel Cosenza v1.4
 
 # Load packages ----
 library(tidyverse)
 library(seqinr)
+library(here)
 
 # Load data ----
 
-expr_tab <- read.delim("data/sample/sample_tabular.tsv", stringsAsFactors = FALSE)
+expr_tab <- read.delim(here("data/sample/sample_tabular.tsv"), 
+                       stringsAsFactors = FALSE)
 
-fasta <- read.fasta("data/sample/sample_sequences.fasta",
+fasta <- read.fasta(here("data/sample/sample_sequences.fasta"),
   seqtype = "AA", as.string = TRUE)
 
 ## Wrangle data ----
@@ -31,18 +22,18 @@ head_names <- str_remove_all(names(expr_tab), pattern = ".*\\\\") %>%
 
 head_names[1] <- "Peptide"
 
-print(head_names)
+#print(head_names)
 
 colnames(expr_tab) <- head_names
 
 
-## Define variales that will go into the function  
+## Define variables that will go into the function  
 
 fasta <- fasta
 
 ## Load the annotate_peptides functions into the R environment ----
 
-source(file = "annotate_peptides.R")
+source(file = here("annotate_peptides.R"))
 
 #### Execution of the function -----
 
@@ -56,5 +47,5 @@ peptides_w_annotation <- left_join(expr_tab,
   annotated_peptides, by = "Peptide")
 
 write_delim(x = peptides_w_annotation,
-            file = "output/sample/tabular_file_w_peptide_annotation.tsv",
+            file = here("output/sample/tabular_file_w_peptide_annotation.tsv"),
             delim = "\t")

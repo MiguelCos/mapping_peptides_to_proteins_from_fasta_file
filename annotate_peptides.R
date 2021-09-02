@@ -1,5 +1,5 @@
 # Annotate peptides function ----
-# Miguel Cosenza v 1.3 
+# Miguel Cosenza v 1.4 
 
 annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev"){ # input should be a vector of peptide sequences and the fasta file
@@ -30,6 +30,7 @@ annotate_peptides <- function(expr_mat, fasta,
       if(is_empty(list_elem)){
          protein_id <- NA
          protein_description <- NA
+         protein_length <- NA
          Peptide <- peptide_sequence[i]
          peptide_position <- NA
          start_position <- NA
@@ -43,6 +44,7 @@ annotate_peptides <- function(expr_mat, fasta,
          
          temprow <- cbind(protein_id,
                           protein_description,
+                          protein_length,
                           Peptide, 
                           start_position,
                           end_position, 
@@ -88,6 +90,8 @@ annotate_peptides <- function(expr_mat, fasta,
          
          protein_seq <- list_elem[[1]][1] # get the matched protein sequence
          
+         protein_length <- str_length(protein_seq) # get the matched protein length  
+         
          Peptide <- peptide_sequence[i] # get the sequence of the peptide
          
          peptide_position <- str_locate(protein_seq, 
@@ -123,6 +127,7 @@ annotate_peptides <- function(expr_mat, fasta,
          
          temprow <- cbind(protein_id,
                           protein_description,
+                          protein_length,
                           Peptide, 
                           start_position,
                           end_position, 
