@@ -105,9 +105,10 @@ annotate_peptides_argc <- function(expr_mat, fasta,
                                        start = peptide_position[,2]+1, 
                                        end = peptide_position[,2]+10) # 10 residues after the end of the peptide sequence
          
-         previous_10_resid <- str_sub(protein_seq, 
-                                      start = peptide_position[,1]-10, 
-                                      end = peptide_position[,1]-1) # 10 residues before the start of the peptide sequence
+         previous_10_resid <- str_sub(protein_seq,
+                                      start = ifelse(peptide_position[,1]-10 > 0, peptide_position[,1]-10, 1),
+                                      end = ifelse(peptide_position[,1]-1 > 0, peptide_position[,1]-1, 0)) # 10 residues before the start of the peptide sequence
+         
          
          previous_all_resid <- str_sub(protein_seq, 
                                        start = 2, 

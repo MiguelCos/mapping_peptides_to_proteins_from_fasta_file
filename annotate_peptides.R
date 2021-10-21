@@ -2,7 +2,8 @@
 # Miguel Cosenza v 1.4 
 
 annotate_peptides <- function(expr_mat, fasta,
-                              decoy_tag = "^rev"){ # input should be a vector of peptide sequences and the fasta file
+                              decoy_tag = "^rev",# input should be a vector of peptide sequences and the fasta file
+                              specificity = "R|K"){ 
    
    pept2prot <- expr_mat %>% 
       dplyr::select(Peptide, Genes) %>% 
@@ -105,9 +106,9 @@ annotate_peptides <- function(expr_mat, fasta,
                                        start = peptide_position[,2]+1, 
                                        end = peptide_position[,2]+10) # 10 residues after the end of the peptide sequence
          
-         previous_10_resid <- str_sub(protein_seq, 
-                                      start = peptide_position[,1]-10, 
-                                      end = peptide_position[,1]-1) # 10 residues before the start of the peptide sequence
+         previous_10_resid <- str_sub(protein_seq,
+                                      start = ifelse(peptide_position[,1]-10 > 0, peptide_position[,1]-10, 1),
+                                      end = ifelse(peptide_position[,1]-1 > 0, peptide_position[,1]-1, 0)) # 10 residues before the start of the peptide sequence
          
          previous_all_resid <- str_sub(protein_seq, 
                                        start = 2, 
@@ -120,6 +121,7 @@ annotate_peptides <- function(expr_mat, fasta,
          aa_before <- str_sub(protein_seq, 
                               start = peptide_position[,1]-1, 
                               end = peptide_position[,1]-1) # amino acid before
+         
          
          last_aa <- str_sub(Peptide, 
                             start = str_count(Peptide), 
