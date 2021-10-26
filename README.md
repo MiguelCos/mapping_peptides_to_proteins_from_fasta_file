@@ -20,6 +20,10 @@ The `annotate_peptides` function now creates an additional column: `previous_all
 
 The `annotate_peptides` function now creates an additional column: `protein_length`.  
 
+## Update on version 1.5: 
+
+The `annotate_peptides` function now includes the argument `specificity`. With that, the user can select which protease you are working with. Now the labelling changed from `semi_tryptic` to `semi_specific` to make it general in case the user is using a protease different than trypsin.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:
