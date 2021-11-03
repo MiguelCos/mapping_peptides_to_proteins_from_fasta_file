@@ -31,6 +31,7 @@ The script `annotate_peptides.R` contains the function `annotate_peptides` that 
 - `expr_mat`: a data frame containing __at least__ two columns with the next _exact_ names: `Peptide` (containing the peptide sequence that you want to annotatate) `Genes` (containing the Uniprot ID that can be used to look for the interesting protein sequence in the fasta file).
 - `fasta`: list containing the fasta file that was used by the search engine to identify the peptides in `peptide_sequence`. The list of fasta sequences should be loaded into R with the `read.fasta` function from the `seqinr` package.  
 - `decoy_tag`: a string defining how to differentiate the decoy sequences in the fasta sequences file for their exclusion. 
+- `specificity` = a string defining the enzyme specificity of your experiment it is set to `"R|K"` by default for trypsin. You can set it to `"R"` for Argc specificity, for example.
 
 The output would be a `data.frame` containing the columns:
 
