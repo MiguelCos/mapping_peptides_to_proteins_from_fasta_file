@@ -57,14 +57,12 @@ Our test with the new version show that it takes ~10 minutes of execution to ann
 
 ## The script `map_semi_tryptic_peptides_to_proteins_in_fasta.R`  
 
-This script contains an example usage of the `annotate_peptides` function using a DIA-NN peptide tabular file as an input.
+This script contains an example usage of the `annotate_peptides` function using an abundance matrix with two columns `Peptide` and `Genes`. This can
 
 Small sample files, both for the quantitative matrix and the fasta file are provided in the `data/sample` folder to test the usage of this function and script.
 
 The input file is an quantitative matrix of peptides in which the first two columns correspond to peptide sequence and protein ID.
 
-Notice that until line 36 there is a demonstration on how to correctly define the names of the first two columns, which is very important for the correct execution of the function.
-
-In line 54, you can see how you can join this newly generated information with your general quantitative matrix.
+In line `46-49`, you can see how you can join this newly generated information with your general quantitative matrix.
 
 
