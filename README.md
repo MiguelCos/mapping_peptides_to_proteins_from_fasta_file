@@ -24,6 +24,10 @@ The `annotate_peptides` function now creates an additional column: `protein_leng
 
 The `annotate_peptides` function now includes the argument `specificity`. With that, the user can select which protease you are working with. Now the labelling changed from `semi_tryptic` to `semi_specific` to make it general in case the user is using a protease different than trypsin.
 
+## Update on version 1.6:
+
+Now the function takes into account if the peptide is terminal or not. A peptide that has a terminal non-specific end, and a non-terminal specific end, is considered specific.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:
