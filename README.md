@@ -32,6 +32,10 @@ Now the function takes into account if the peptide is terminal or not. A peptide
 
 Correct a bug that was labeling N-term or C-term specific peptides as semi-tryptic.
 
+## Update on version 1.8:
+
+Bug correction for improving the labelling of peptides N-term or C-term peptides.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:

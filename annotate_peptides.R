@@ -1,5 +1,5 @@
 # Annotate peptides function ----
-# Miguel Cosenza v 1.7
+# Miguel Cosenza v 1.8
 
 annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev",# input should be a vector of peptide sequences and the fasta file
@@ -160,6 +160,12 @@ annotate_peptides <- function(expr_mat, fasta,
                                                                        semi_type == "semi_Cterm" & general_position == "Cterm_peptide" ~ "specific",
                                                                        semi_type == "semi_Cterm" & general_position == "not_terminal" ~ "semi_specific",
                                                                        semi_type == "semi_Nterm" & general_position == "not_terminal" ~ "semi_specific",
+                                                                       semi_type == "unspecific" & general_position == "Nterm_peptide" ~ "semi_specific",
+                                                                       semi_type == "unspecific" & general_position == "Cterm_peptide" ~ "semi_specific",
+                                                                       general_position == "Cterm_peptide" & str_detect(aa_before, specificity) ~ "specific",
+                                                                       general_position == "Cterm_peptide" & str_detect(aa_before, specificity, negate = TRUE) ~ "semi_specific",
+                                                                       general_position == "Nterm_peptide" & str_detect(last_aa, specificity) ~ "specific",
+                                                                       general_position == "Nterm_peptide" & str_detect(last_aa, specificity, negate = TRUE) ~ "semi_specific",
                                                                        semi_type == "specific" ~ "specific"),
                                                is_terminal = if_else(general_position == "not_terminal", 
                                                                      true = "not_terminal",
