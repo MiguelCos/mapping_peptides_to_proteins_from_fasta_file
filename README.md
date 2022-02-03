@@ -28,6 +28,10 @@ The `annotate_peptides` function now includes the argument `specificity`. With t
 
 Now the function takes into account if the peptide is terminal or not. A peptide that has a terminal non-specific end, and a non-terminal specific end, is considered specific.
 
+## Update on version 1.7:
+
+Correct a bug that was labeling N-term or C-term specific peptides as semi-tryptic.
+
 ## The function `annotate_peptides`  
 
 The script `annotate_peptides.R` contains the function `annotate_peptides` that takes three argumens:

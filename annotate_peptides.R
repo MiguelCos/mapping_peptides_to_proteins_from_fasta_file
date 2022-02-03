@@ -1,5 +1,5 @@
 # Annotate peptides function ----
-# Miguel Cosenza v 1.6
+# Miguel Cosenza v 1.7
 
 annotate_peptides <- function(expr_mat, fasta,
                               decoy_tag = "^rev",# input should be a vector of peptide sequences and the fasta file
@@ -152,21 +152,20 @@ annotate_peptides <- function(expr_mat, fasta,
                                         mutate(semi_type = case_when(str_detect(last_aa, specificity) & str_detect(aa_before, specificity, negate = TRUE) ~ "semi_Nterm",
                                                                      str_detect(last_aa, specificity, negate = TRUE) & str_detect(aa_before, specificity) ~ "semi_Cterm",
                                                                      str_detect(last_aa, specificity, negate = TRUE) & str_detect(aa_before, specificity, negate = TRUE) ~ "unspecific",
-                                                                     TRUE ~ "specific"),
+                                                                     str_detect(last_aa, specificity) & str_detect(aa_before, specificity) ~ "specific"),
                                                general_position = case_when(as.numeric(start_position) <= 2 ~ "Nterm_peptide",
-                                                                            end_position == protein_length ~ "Cterm_peptide",
+                                                                            as.numeric(end_position) == as.numeric(protein_length) ~ "Cterm_peptide",
                                                                             TRUE ~ "not_terminal")) %>%
-                                        mutate(specificity = case_when(semi_type == "semi_Nterm" ~ "semi_specific",
-                                                                       semi_type == "semi_Cterm" ~ "semi_specific",
-                                                                       semi_type == "semi_Nterm" & general_position == "Nterm_peptide" ~ "semi_specific",
-                                                                       semi_type == "semi_Cterm" & general_position == "Cterm_peptide" ~ "semi_specific",
-                                                                       TRUE ~ "specific"),
+                                        mutate(specificity = case_when(semi_type == "semi_Nterm" & general_position == "Nterm_peptide" ~ "specific",
+                                                                       semi_type == "semi_Cterm" & general_position == "Cterm_peptide" ~ "specific",
+                                                                       semi_type == "semi_Cterm" & general_position == "not_terminal" ~ "semi_specific",
+                                                                       semi_type == "semi_Nterm" & general_position == "not_terminal" ~ "semi_specific",
+                                                                       semi_type == "specific" ~ "specific"),
                                                is_terminal = if_else(general_position == "not_terminal", 
                                                                      true = "not_terminal",
                                                                      false = "terminal")) %>%
                                         mutate(semi_type = case_when(semi_type == "unspecific" & general_position == "Nterm_peptide" ~ "semi_Nterm",
                                                                      semi_type == "unspecific" & general_position == "Cterm_peptide" ~ "semi_Cterm",
                                                                      TRUE ~ semi_type))
-                    
                     return(annotation)
 }
