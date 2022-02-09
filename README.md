@@ -34,7 +34,7 @@ Correct a bug that was labeling N-term or C-term specific peptides as semi-trypt
 
 ## Update on version 1.8:
 
-Bug correction for improving the labelling of peptides N-term or C-term peptides.
+Bug correction for improving the labelling of N-term or C-term peptides.
 
 ## The function `annotate_peptides`  
 
